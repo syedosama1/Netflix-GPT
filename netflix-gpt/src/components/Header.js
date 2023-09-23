@@ -13,6 +13,7 @@ const Header = () => {
   const showGptSearch  = useSelector((store)=>store.gpt.showGptSearch)
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
+
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -50,11 +51,11 @@ const Header = () => {
     dispatch(changeLanguage(e.target.value));
   };
   return (
-    <div className="absolute w-screen px-8 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
+    <div className="absolute w-screen px-4 py-2 bg-gradient-to-b from-black z-10 flex flex-col md:flex-row justify-between">
            <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="logo" />
 
       {user && (
-        <div className="flex p-2 justify-between">
+        <div className="flex p-4 justify-between">
           {showGptSearch && (
             <select
               className="p-2 m-2 bg-gray-900 text-white"
@@ -67,12 +68,15 @@ const Header = () => {
               ))}
             </select>
           )}
-        <button className="py-2 px-4 mx-4 my-2 bg-purple-800 text-white rounded-lg" 
+        <button
+            className=" px-2 mx-2 my-2  bg-purple-800 text-white rounded-lg"
          onClick={toggleSearchView}>{showGptSearch ? "Homepage" : "GPT Search"}
           </button>
-          <img   className="hidden md:block w-12 h-12 mr-2" src={user?.photoURL} alt="Avatar" />
+          <img   
+            className="hidden md:block w-12 h-15 mr-2 rounded-2xl"
+          src={user?.photoURL} alt="Avatar" />
           <button
-            className="font-bold text-white bg-red-600 w-28 h-8"
+            className=" px-2 mx-2 my-2 font-bold text-white bg-red-600 w-28 h-12 rounded-lg"
             onClick={handleSignOut}
           >
             Sign Out

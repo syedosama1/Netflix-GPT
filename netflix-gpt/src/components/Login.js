@@ -46,7 +46,7 @@ const Login = () => {
             });
         })
         .catch((error) => {
-          const errorCode = error.code;
+          const errorCode = error.message;
           const errorMessage = error.message;
           setErrorMessage(errorCode + "-" + errorMessage);
         });
@@ -62,7 +62,7 @@ const Login = () => {
             const user = userCredential.user;
           })
           .catch((error) => {
-            const errorCode = error.code;
+            const errorCode = error.message;
             const errorMessage = error.message;
             setErrorMessage(errorCode + "-" + errorMessage);
           });
@@ -83,7 +83,7 @@ const Login = () => {
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className=" w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+        className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
       >
         <h1 className="font-bold text-3xl py-4">
           {" "}
@@ -91,7 +91,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
-          ref={name}
+           ref={name}
             type="text"
             placeholder="Full Name"
             className="p-2 m-2  bg-gray-600 w-full border-r-0"

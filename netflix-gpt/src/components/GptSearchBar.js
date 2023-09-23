@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import lang from "../utils/languageConstants";
 import { API_OPTIONS } from "../utils/constants";
-import openai from "../utils/openai";
+import open from "../utils/openai";
 import { addGptMovieResult } from "../utils/gptSlice";
 
 const GptSearchBar = () => {
@@ -32,7 +32,7 @@ const GptSearchBar = () => {
       searchText.current.value +
       ". only give me names of 5 movies, comma seperated like the example result given ahead. Example Result: Gadar, Sholay, Don, Golmaal, Koi Mil Gaya";
 
-    const gptResults = await openai.chat.completions.create({
+    const gptResults = await open.chat.completions.create({
       messages: [{ role: "user", content: gptQuery }],
       model: "gpt-3.5-turbo",
     });

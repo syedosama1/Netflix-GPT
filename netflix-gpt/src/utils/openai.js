@@ -1,10 +1,10 @@
 import OpenAI from "openai";
 import { AI_KEY } from "./constants";
 
-const openai = new OpenAI({
+const open = new OpenAI({
   apiKey: AI_KEY,
   dangerouslyAllowBrowser: true,
 });
 
-export default openai;
+export default open;
   
